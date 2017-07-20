@@ -45,7 +45,11 @@ public class TestCollisions {
     
     /////use this one
     void modifyVelocity(float wallRad, Vector ballV, Vector.ballP){
-        ballV.rotate( (wallRad - ballV.dir() ) * -2.0f );
+        if(wallRad < Math.PI/2f) 
+            ballV.rotate( (wallRad - ballV.dir() ) * -2.0f );
+        else 
+            ballV.rotate( (wallRad - ballV.dir()) * 2.0f );
+        
         ballP.add(Vector.mult(ballV, 0.01)):
     }
 
